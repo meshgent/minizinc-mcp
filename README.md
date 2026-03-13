@@ -233,7 +233,7 @@ DOCKER=podman npm run docker:run
 
 ## Architecture
 
-- **Language:** TypeScript compiled to CommonJS (`dist/`)
+- **Language:** TypeScript compiled to ESM (`dist/`)
 - **MCP SDK:** [`@modelcontextprotocol/sdk`](https://www.npmjs.com/package/@modelcontextprotocol/sdk) v1.x (stdio + streamable HTTP transports)
 - **Solver API:** [`minizinc`](https://www.npmjs.com/package/minizinc) npm package wrapping the native MiniZinc binary
 - **HTTP framework:** Express with CORS enabled

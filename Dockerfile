@@ -17,7 +17,7 @@ RUN curl -fsSL \
     && rm /tmp/minizinc.tgz
 
 # Stage 2: Build the Node.js app
-FROM node:22-slim AS builder
+FROM node:25.8-slim AS builder
 
 WORKDIR /app
 
@@ -29,7 +29,7 @@ COPY src/ ./src/
 RUN npm run build && npm prune --omit=dev
 
 # Stage 3: Runtime image
-FROM node:22-slim AS runtime
+FROM node:25.8-slim AS runtime
 
 # fzn-gecode is Qt-linked and requires X11/OpenGL libs even in headless mode
 RUN apt-get update && apt-get install -y --no-install-recommends \

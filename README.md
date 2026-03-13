@@ -19,6 +19,7 @@ claude mcp add minizinc-mcp -- node /path/to/minizinc-mcp/dist/index.js
 
 **HTTP (Docker):**
 ```bash
+docker run --rm -p 3000:3000 meshgent/minizinc-mcp:latest
 claude mcp add --transport http minizinc-mcp http://localhost:3000/mcp
 ```
 
@@ -69,11 +70,17 @@ Add to your MCP settings file:
 
 ### Docker (HTTP transport)
 
-```bash
-# Build
-docker build -t minizinc-mcp .
+The image is published to Docker Hub — no build step required:
 
-# Run (exposes MCP on http://localhost:3000/mcp)
+```bash
+docker pull meshgent/minizinc-mcp:latest
+docker run --rm -p 3000:3000 meshgent/minizinc-mcp:latest
+```
+
+Or build locally:
+
+```bash
+docker build -t minizinc-mcp .
 docker run --rm -p 3000:3000 minizinc-mcp
 ```
 
@@ -220,6 +227,7 @@ MINIZINC_BIN=/opt/minizinc/bin/minizinc node dist/index.js
 npm run docker:build    # build image (tag: minizinc-mcp)
 npm run docker:run      # run container, expose port 3000
 npm run docker:inspect  # open MCP Inspector against running container
+npm run docker:release  # tag and push to meshgent/minizinc-mcp:latest on Docker Hub
 ```
 
 Override the container runtime via the `DOCKER` env var:

@@ -15,6 +15,8 @@
     "docker:build": "${DOCKER:-docker} build -t minizinc-mcp .",
     "docker:run": "${DOCKER:-docker} run --rm -p 3000:3000 minizinc-mcp",
     "docker:inspect": "npx @modelcontextprotocol/inspector --transport http --server-url http://localhost:3000/mcp",
+    "docker:tag": "${DOCKER:-docker} tag minizinc-mcp meshgent/minizinc-mcp:latest",
+    "docker:release": "npm run docker:tag && ${DOCKER:-docker} push meshgent/minizinc-mcp:latest",
     "lint": "eslint src",
     "test": "vitest run"
   },

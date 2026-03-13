@@ -1,0 +1,28 @@
+# Dependencies and build output (rebuilt inside Docker)
+node_modules/
+dist/
+
+# Version control
+.git/
+.gitignore
+
+# Environment and secrets
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs (not needed at runtime)
+*.md
